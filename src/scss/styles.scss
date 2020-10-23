@@ -1,0 +1,308 @@
+$primary-color: #00A5E9;
+$text-color   : white;
+
+/* ....PAGE.... */
+
+/* PAGE SIZE */
+body {
+  background     : url(../images/background.png) no-repeat fixed center;
+  background-size: cover;
+  height         : 120vh;
+  width          : 100vw;
+  color          : $text-color;
+
+  /* CONTENT SIZE , POSITION */
+  header,
+  main,
+  footer {
+    width          : 100vw;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    flex-direction : column;
+  }
+
+  /* HEADER */
+  header {
+    height  : 20vh;
+    overflow: hidden;
+  }
+
+  /* MAIN*/
+  main {
+    height: 80vh;
+
+    .main-first {
+      display        : flex;
+      height         : 65%;
+      justify-content: center;
+      width          : 100%;
+      align-items    : flex-end;
+
+      .js-video {
+        width     : 60%;
+        background: black;
+        position  : relative;
+        height    : 80%;
+
+        iframe {
+          z-index : 5;
+          position: relative;
+        }
+      }
+
+      .play {
+        position: absolute;
+        left    : 45%;
+        top     : 40%;
+
+        i {
+          display        : flex;
+          color          : $primary-color;
+          font-size      : 10vw;
+          background     : #fff;
+          border-radius  : 50%;
+          width          : 3vw;
+          justify-content: center;
+          line-height    : 50px;
+          z-index        : 2;
+          align-items    : center;
+          height         : 3vh;
+          padding        : 2vw;
+        }
+
+        i:hover {
+          cursor: pointer;
+        }
+      }
+
+      .video-poster {
+        background-repeat: no-repeat;
+        position         : absolute;
+        width            : 100%;
+        height           : 100%;
+
+      }
+    }
+
+    .main-second {
+      display        : flex;
+      height         : 35%;
+      width          : 100%;
+      justify-content: center;
+      flex-direction : column;
+
+      .main-text {
+        display        : flex;
+        height         : 50%;
+        width          : 100%;
+        font           : bold 1.5vw Verdana, sans-serif;
+        justify-content: center;
+        align-items    : flex-end;
+      }
+
+      .main-social {
+        display        : flex;
+        height         : 50%;
+        width          : 100%;
+        justify-content: center;
+
+        .main-social-icon {
+          height: 6vh;
+          width : 5vw;
+
+        }
+
+        .main-social-link {
+          height: max-content;
+          margin: 0.5vw;
+
+          :hover {
+            transition: all 0.5s ease;
+            transform : scale(1.3);
+          }
+        }
+
+        a:hover {
+          transition: 8s ease;
+        }
+
+        .fb {
+
+          background     : url(../icons/fb.png) no-repeat center;
+          background-size: contain;
+        }
+
+        .in {
+          background     : url(../icons/in.png) no-repeat center;
+          background-size: contain;
+        }
+
+        .tw {
+          background     : url(../icons/tw.png) no-repeat center;
+          background-size: contain;
+        }
+
+        .mail {
+          background     : url(../icons/mail.png) no-repeat center;
+          background-size: contain;
+        }
+      }
+    }
+  }
+
+  /* FOOTER */
+
+  footer {
+    height    : 20vh;
+    background: white;
+
+    .footer-img {
+      display        : flex;
+      height         : 100%;
+      flex-direction : row;
+      justify-content: space-around;
+      align-items    : center;
+      width          : 50vw;
+
+      .footer-img-zel {
+        max-height: 75%;
+        max-width : 50%;
+      }
+
+      .footer-img-cd {
+        max-height: 50%;
+        max-width : 50%;
+
+      }
+    }
+  }
+}
+
+/* ....ANIMATIONS.... */
+
+/* SNOW ANM  */
+
+.main-wrapper {
+  width  : 100vw;
+  z-index: -1;
+}
+
+$s1:"";
+$s2:"";
+$s3:"";
+
+@for $i from 1 through 400 {
+  $s1: $s1 + random(1000)*0.1vw + " "+ random(1000)*0.1vh + " "+ 0 + " "+ random(50)*-0.01rem + #fff;
+  $s2: $s2 + random(1000)*0.1vw + " "+ random(1000)*0.1vh + " "+ 0 + " "+ random(50)*-0.01rem + #fff;
+  $s3: $s3 + random(1000)*0.1vw + " "+ random(1000)*0.1vh + " "+ 0 + " "+ random(50)*-0.01rem + #fff;
+
+  @if $i < 400 {
+    $s1: $s1 + ",";
+    $s2: $s2 + ",";
+    $s3: $s3 + ",";
+  }
+}
+
+.snow {
+  border-radius            : 50%;
+  opacity                  : 0.6;
+  position                 : absolute;
+  top                      : -90vh;
+  animation-name           : fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.layer1 {
+  width             : 1.5vw;
+  height            : 1.5vw;
+  filter            : blur(1.5px);
+  box-shadow        : #{$s1};
+  animation-duration: 10s;
+}
+
+.layer1.a {
+  animation-delay: -3s;
+}
+
+.layer2 {
+  width             : 1.2vw;
+  height            : 1.2vw;
+  filter            : blur(3px);
+  box-shadow        : #{$s2};
+  animation-duration: 12s;
+}
+
+.layer2.a {
+  animation-delay: -4s;
+}
+
+.layer3 {
+  width             : 0.8vw;
+  height            : 0.8vw;
+  filter            : blur(6px);
+  box-shadow        : #{$s3};
+  animation-duration: 14s;
+}
+
+.layer3.a {
+  animation-delay: -5s;
+}
+
+@keyframes fall {
+  100% {
+    transform: translateY(150vh);
+  }
+}
+
+/* HEADER ANM */
+
+.header-animate {
+  display        : flex;
+  height         : 100vh;
+  width          : 60vw;
+  align-items    : center;
+  visibility     : hidden;
+  justify-content: center;
+
+  .line {
+    display  : flex;
+    height   : max-content;
+    animation: slide 1s ease-in-out forwards;
+    font     : bold 4vw Verdana, sans-serif;
+    overflow : hidden;
+    padding  : 0 1vw;
+
+  }
+
+  .line:nth-child(1) {
+    animation-delay: 0.5s
+  }
+
+  .line:nth-child(2) {
+    animation-delay: 0.9s
+  }
+
+  .line:nth-child(3) {
+    animation-delay: 1.2s
+  }
+
+  .line:nth-child(4) {
+    animation-delay: 1.4s
+  }
+
+  @keyframes slide {
+
+    0% {
+      margin-top: 20rem;
+    }
+
+    100% {
+      margin-top: 0rem;
+      display   : flex;
+      visibility: visible;
+    }
+  }
+
+}
