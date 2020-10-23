@@ -1,6 +1,8 @@
 $primary-color: #00A5E9;
 $text-color   : white;
 
+
+
 /* ....PAGE.... */
 
 /* PAGE SIZE */
@@ -37,13 +39,13 @@ body {
       height         : 65%;
       justify-content: center;
       width          : 100%;
-      align-items    : flex-end;
+      align-items    : center;
 
       .js-video {
-        width     : 60%;
+        width     : 80vw;
+        height    : calc(80vw * (9/16));
         background: black;
         position  : relative;
-        height    : 80%;
 
         iframe {
           z-index : 5;
@@ -59,7 +61,7 @@ body {
         i {
           display        : flex;
           color          : $primary-color;
-          font-size      : 10vw;
+          font-size      : 13vw;
           background     : #fff;
           border-radius  : 50%;
           width          : 3vw;
@@ -96,7 +98,7 @@ body {
         display        : flex;
         height         : 50%;
         width          : 100%;
-        font           : bold 1.5vw Verdana, sans-serif;
+        font           : bold 3vw Verdana, sans-serif;
         justify-content: center;
         align-items    : flex-end;
       }
@@ -261,7 +263,7 @@ $s3:"";
 .header-animate {
   display        : flex;
   height         : 100vh;
-  width          : 60vw;
+  width          : 75vw;
   align-items    : center;
   visibility     : hidden;
   justify-content: center;
@@ -270,7 +272,7 @@ $s3:"";
     display  : flex;
     height   : max-content;
     animation: slide 1s ease-in-out forwards;
-    font     : bold 4vw Verdana, sans-serif;
+    font     : bold 6vw Verdana, sans-serif;
     overflow : hidden;
     padding  : 0 1vw;
 
